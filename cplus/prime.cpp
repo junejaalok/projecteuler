@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+bool is_prime (long a) {
+	if (a <= 2) return true;
+	if (!(a % 2)) return false;
+	int limit = int(sqrt(a))+1;
+	for (int x=3;x<limit;x++)
+		if (!(a%x)) return false;
+	return true;
+}
+
+int main() {
+	long val=2;
+	long i =0;
+	long cnt = 10001;
+	long* prim=new long [cnt];
+	while (i <cnt) {
+		if (is_prime(val)) {
+			cout << val << endl;
+			*prim = val;
+			prim++;
+			i++;
+		}
+		val++;
+	}
+	return 0;
+}
